@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Controllers\\CampusesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\CampusesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Services\\BookingService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\BookingService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -95,10 +103,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\FacilitiesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Controllers\\CampusesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\CampusesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Services\\IFacilityService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Services\\IFacilityService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -129,10 +133,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Repositories\\IFacilityRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Repositories\\IFacilityRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\DTOs\\FacilityTypeDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -250,37 +250,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "BookingRecurringRequest.cs",
-              "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\DTOs\\BookingRecurringRequest.cs",
-              "RelativeDocumentMoniker": "DTOs\\BookingRecurringRequest.cs",
-              "ToolTip": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\DTOs\\BookingRecurringRequest.cs",
-              "RelativeToolTip": "DTOs\\BookingRecurringRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T08:04:13.063Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BookingRepository.cs",
-              "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Repositories\\BookingRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\BookingRepository.cs",
-              "ToolTip": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Repositories\\BookingRepository.cs",
-              "RelativeToolTip": "Repositories\\BookingRepository.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAEoAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T01:06:45.376Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "IBookingRepository.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Repositories\\IBookingRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\IBookingRepository.cs",
@@ -288,12 +262,11 @@
               "RelativeToolTip": "Repositories\\IBookingRepository.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAkwA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T01:06:33.607Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T01:06:33.607Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "IBookingService.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Services\\IBookingService.cs",
               "RelativeDocumentMoniker": "Services\\IBookingService.cs",
@@ -301,12 +274,11 @@
               "RelativeToolTip": "Services\\IBookingService.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAswBQAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T01:08:26.08Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T01:08:26.08Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "BookingService.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Services\\BookingService.cs",
               "RelativeDocumentMoniker": "Services\\BookingService.cs",
@@ -314,12 +286,11 @@
               "RelativeToolTip": "Services\\BookingService.cs",
               "ViewState": "AgIAAEwBAAAAAAAAAAAkwFoBAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T01:08:32.951Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T01:08:32.951Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "BookingsController.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Controllers\\BookingsController.cs",
               "RelativeDocumentMoniker": "Controllers\\BookingsController.cs",
@@ -327,12 +298,11 @@
               "RelativeToolTip": "Controllers\\BookingsController.cs",
               "ViewState": "AgIAAIcAAAAAAAAAAAAmwJsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T01:09:29.522Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T01:09:29.522Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Booking.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Models\\Booking.cs",
               "RelativeDocumentMoniker": "Models\\Booking.cs",
@@ -340,12 +310,61 @@
               "RelativeToolTip": "Models\\Booking.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAB8AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T06:43:13.708Z",
+              "WhenOpened": "2025-12-10T06:43:13.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CampusesController.cs",
+              "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Controllers\\CampusesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CampusesController.cs",
+              "ToolTip": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Controllers\\CampusesController.cs",
+              "RelativeToolTip": "Controllers\\CampusesController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T11:56:42.871Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T11:49:30.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BookingRepository.cs",
+              "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Repositories\\BookingRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\BookingRepository.cs",
+              "ToolTip": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Repositories\\BookingRepository.cs",
+              "RelativeToolTip": "Repositories\\BookingRepository.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEoAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T01:06:45.376Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "BookingRecurringRequest.cs",
+              "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\DTOs\\BookingRecurringRequest.cs",
+              "RelativeDocumentMoniker": "DTOs\\BookingRecurringRequest.cs",
+              "ToolTip": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\DTOs\\BookingRecurringRequest.cs",
+              "RelativeToolTip": "DTOs\\BookingRecurringRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T08:04:13.063Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "NotificationsController.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Controllers\\NotificationsController.cs",
               "RelativeDocumentMoniker": "Controllers\\NotificationsController.cs",
@@ -353,12 +372,11 @@
               "RelativeToolTip": "Controllers\\NotificationsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAIwBQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T06:54:59.031Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T06:54:59.031Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ReportsController.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Controllers\\ReportsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReportsController.cs",
@@ -366,12 +384,11 @@
               "RelativeToolTip": "Controllers\\ReportsController.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAAACUAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T06:54:04.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T06:54:04.85Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "FacilityTypesController.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Controllers\\FacilityTypesController.cs",
               "RelativeDocumentMoniker": "Controllers\\FacilityTypesController.cs",
@@ -379,12 +396,11 @@
               "RelativeToolTip": "Controllers\\FacilityTypesController.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T04:18:43.403Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T04:18:43.403Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "ReportService.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Services\\ReportService.cs",
               "RelativeDocumentMoniker": "Services\\ReportService.cs",
@@ -392,12 +408,11 @@
               "RelativeToolTip": "Services\\ReportService.cs",
               "ViewState": "AgIAADgAAAAAAAAAAAAkwD8AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T06:53:39.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T06:53:39.15Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Report.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Models\\Report.cs",
               "RelativeDocumentMoniker": "Models\\Report.cs",
@@ -405,12 +420,11 @@
               "RelativeToolTip": "Models\\Report.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T07:36:41.608Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T07:36:41.608Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "ReportDto.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\DTOs\\ReportDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ReportDto.cs",
@@ -418,12 +432,11 @@
               "RelativeToolTip": "DTOs\\ReportDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T07:23:19.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T07:23:19.291Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "IReportService.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Services\\IReportService.cs",
               "RelativeDocumentMoniker": "Services\\IReportService.cs",
@@ -431,12 +444,11 @@
               "RelativeToolTip": "Services\\IReportService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T06:57:38.112Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T06:57:38.112Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "IFacilityTypeService.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Services\\IFacilityTypeService.cs",
               "RelativeDocumentMoniker": "Services\\IFacilityTypeService.cs",
@@ -444,12 +456,11 @@
               "RelativeToolTip": "Services\\IFacilityTypeService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T04:17:17.791Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T04:17:17.791Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "FacilityTypeService.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Services\\FacilityTypeService.cs",
               "RelativeDocumentMoniker": "Services\\FacilityTypeService.cs",
@@ -457,12 +468,11 @@
               "RelativeToolTip": "Services\\FacilityTypeService.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAmwCkAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T04:17:27.614Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T04:17:27.614Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "BookingHistoryDto.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\DTOs\\BookingHistoryDto.cs",
               "RelativeDocumentMoniker": "DTOs\\BookingHistoryDto.cs",
@@ -470,12 +480,11 @@
               "RelativeToolTip": "DTOs\\BookingHistoryDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T07:01:21.328Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T07:01:21.328Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "ReportStatusUpdate.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\DTOs\\ReportStatusUpdate.cs",
               "RelativeDocumentMoniker": "DTOs\\ReportStatusUpdate.cs",
@@ -483,12 +492,11 @@
               "RelativeToolTip": "DTOs\\ReportStatusUpdate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T07:23:39.382Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T07:23:39.382Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "ReportCreateRequest.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\DTOs\\ReportCreateRequest.cs",
               "RelativeDocumentMoniker": "DTOs\\ReportCreateRequest.cs",
@@ -496,12 +504,11 @@
               "RelativeToolTip": "DTOs\\ReportCreateRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T06:50:28.106Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T06:50:28.106Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "CampusRepository.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Repositories\\CampusRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\CampusRepository.cs",
@@ -509,12 +516,11 @@
               "RelativeToolTip": "Repositories\\CampusRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T11:55:13.905Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-09T11:55:13.905Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "IFacilityService.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Services\\IFacilityService.cs",
               "RelativeDocumentMoniker": "Services\\IFacilityService.cs",
@@ -522,12 +528,11 @@
               "RelativeToolTip": "Services\\IFacilityService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T05:07:23.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T05:07:23.259Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "CampusService.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Services\\CampusService.cs",
               "RelativeDocumentMoniker": "Services\\CampusService.cs",
@@ -535,25 +540,11 @@
               "RelativeToolTip": "Services\\CampusService.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T11:55:44.953Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-09T11:55:44.953Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 23,
-              "Title": "CampusesController.cs",
-              "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Controllers\\CampusesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CampusesController.cs",
-              "ToolTip": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Controllers\\CampusesController.cs",
-              "RelativeToolTip": "Controllers\\CampusesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T11:56:42.871Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
               "Title": "FacilityService.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Services\\FacilityService.cs",
               "RelativeDocumentMoniker": "Services\\FacilityService.cs",
@@ -561,12 +552,11 @@
               "RelativeToolTip": "Services\\FacilityService.cs",
               "ViewState": "AgIAAFcAAAAAAAAAAAAswGIAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T05:07:34.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T05:07:34.1Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "IFacilityRepository.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Repositories\\IFacilityRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\IFacilityRepository.cs",
@@ -574,12 +564,11 @@
               "RelativeToolTip": "Repositories\\IFacilityRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T05:06:51.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T05:06:51.574Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "FacilitiesController.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Controllers\\FacilitiesController.cs",
               "RelativeDocumentMoniker": "Controllers\\FacilitiesController.cs",
@@ -587,12 +576,11 @@
               "RelativeToolTip": "Controllers\\FacilitiesController.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T05:07:43.506Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-10T05:07:43.506Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "FacilityCreateRequest.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\DTOs\\FacilityCreateRequest.cs",
               "RelativeDocumentMoniker": "DTOs\\FacilityCreateRequest.cs",
@@ -600,12 +588,11 @@
               "RelativeToolTip": "DTOs\\FacilityCreateRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T04:51:16.471Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T04:51:16.471Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "FacilityUpdateRequest.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\DTOs\\FacilityUpdateRequest.cs",
               "RelativeDocumentMoniker": "DTOs\\FacilityUpdateRequest.cs",
@@ -613,25 +600,11 @@
               "RelativeToolTip": "DTOs\\FacilityUpdateRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T04:51:27.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T04:51:27.716Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAD4vz4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T11:49:30.132Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "Campus.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Models\\Campus.cs",
               "RelativeDocumentMoniker": "Models\\Campus.cs",
@@ -639,12 +612,11 @@
               "RelativeToolTip": "Models\\Campus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T04:20:41.002Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T04:20:41.002Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "CampusDto.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\DTOs\\CampusDto.cs",
               "RelativeDocumentMoniker": "DTOs\\CampusDto.cs",
@@ -652,12 +624,11 @@
               "RelativeToolTip": "DTOs\\CampusDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T04:16:20.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T04:16:20.035Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "ICampusService.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Services\\ICampusService.cs",
               "RelativeDocumentMoniker": "Services\\ICampusService.cs",
@@ -665,12 +636,11 @@
               "RelativeToolTip": "Services\\ICampusService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T11:55:33.594Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-09T11:55:33.594Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "ICampusRepository.cs",
               "DocumentMoniker": "E:\\JOB FA25\\1M\\Backend\\FPT_Booking_BE\\Repositories\\ICampusRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\ICampusRepository.cs",
@@ -678,8 +648,7 @@
               "RelativeToolTip": "Repositories\\ICampusRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-09T11:55:02.205Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-09T11:55:02.205Z"
             },
             {
               "$type": "Document",
@@ -691,8 +660,7 @@
               "RelativeToolTip": "DTOs\\FacilityTypeDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T04:16:35.447Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T04:16:35.447Z"
             },
             {
               "$type": "Document",
