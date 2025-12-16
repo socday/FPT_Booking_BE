@@ -44,6 +44,7 @@ namespace FPT_Booking_BE.Services
                     FacilityId = f.FacilityId,
                     FacilityName = f.FacilityName,
                     CampusName = f.Campus.CampusName,
+                    FacilityCapacity = f.Capacity,
                     TypeName = f.Type.TypeName,
                     ImageUrl = f.ImageUrl ?? "",
                     Status = f.Status

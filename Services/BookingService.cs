@@ -166,19 +166,31 @@ namespace FPT_Booking_BE.Services
 
             return historyDtos;
         }
-
-        public async Task<bool> UpdateStatus(int bookingId, string status, string? rejectionReason)
+        public async Task<string> UpdateStatus(int bookingId, string status, string? rejectionReason)
         {
-            var booking = await _context.Bookings.FindAsync(bookingId);
-            if (booking == null) return false;
-            if (booking.Status != "Pending") return false;
+            var booking = await _context.Bookings
+                .Include(b => b.Slot)
+                .FirstOrDefaultAsync(b => b.BookingId == bookingId);
+
+            if (booking == null) return "NotFound";
+
+            if (booking.Status != "Pending") return "NotPending";
+
+            if (status == "Approved")
+            {
+                var startDateTime = booking.BookingDate.ToDateTime(booking.Slot.StartTime);
+
+                if (startDateTime < DateTime.Now)
+                {
+                    return "Expired"; 
+                }
+            }
 
             booking.Status = status;
 
             if (status == "Rejected")
             {
                 booking.RejectionReason = rejectionReason;
-
                 await _notificationService.CreateNotificationAsync(new Notification
                 {
                     UserId = booking.UserId,
@@ -201,7 +213,7 @@ namespace FPT_Booking_BE.Services
             }
 
             await _context.SaveChangesAsync();
-            return true;
+            return "Success";
         }
 
         public async Task<List<int>> GetBookedSlots(int facilityId, DateOnly date)

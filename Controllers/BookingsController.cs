@@ -43,7 +43,7 @@ namespace FPT_Booking_BE.Controllers
         }
 
         [HttpPut("{id}/status")]
-        [Authorize(Roles = "Admin,Manager")] 
+        [Authorize(Roles = "Admin,FacilityAdmin")]
         public async Task<IActionResult> UpdateStatus(int id, [FromBody] BookingStatusUpdate request)
         {
             if (request.Status != "Approved" && request.Status != "Rejected")
@@ -53,12 +53,23 @@ namespace FPT_Booking_BE.Controllers
 
             var result = await _bookingService.UpdateStatus(id, request.Status, request.RejectionReason);
 
-            if (!result)
+            switch (result)
             {
-                return BadRequest(new { message = "Không tìm thấy đơn đặt phòng hoặc đơn này không ở trạng thái 'Pending' để duyệt." });
-            }
+                case "Success":
+                    return Ok(new { message = $"Đã cập nhật trạng thái thành {request.Status}" });
 
-            return Ok(new { message = $"Đã cập nhật trạng thái thành {request.Status}" });
+                case "NotFound":
+                    return NotFound(new { message = "Không tìm thấy đơn đặt phòng." });
+
+                case "NotPending":
+                    return BadRequest(new { message = "Chỉ có thể duyệt đơn đang ở trạng thái Pending." });
+
+                case "Expired": 
+                    return BadRequest(new { message = "Không thể DUYỆT đơn này vì thời gian bắt đầu (Slot) đã trôi qua." });
+
+                default:
+                    return StatusCode(500, new { message = "Lỗi hệ thống." });
+            }
         }
 
 

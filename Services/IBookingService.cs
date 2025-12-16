@@ -8,8 +8,7 @@ namespace FPT_Booking_BE.Services
 
         Task<List<BookingHistoryDto>> GetHistory(int userId);
 
-        Task<bool> UpdateStatus(int bookingId, string status, string? rejectionReason);
-
+        Task<string> UpdateStatus(int bookingId, string status, string? rejectionReason);
         Task<List<int>> GetBookedSlots(int facilityId, DateOnly date);
 
         Task<string> CancelBooking(int userId, int bookingId);
