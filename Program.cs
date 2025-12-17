@@ -75,6 +75,7 @@ builder.Services.AddScoped<INotificationService, NotificationService>();
 
 builder.Services.AddScoped<IFacilityTypeService, FacilityTypeService>();
 
+builder.Services.AddScoped<IAssetRepository, AssetRepository>();
 builder.Services.AddScoped<IAssetService, AssetService>();
 
 builder.Services.AddScoped<ISecurityTaskService, SecurityTaskService>();
