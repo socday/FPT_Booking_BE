@@ -16,22 +16,27 @@ namespace FPT_Booking_BE.Services
             _context = context;
         }
 
-        public async Task<List<SlotDto>> GetAllSlots()
+       public async Task<List<SlotDto>> GetAllSlots(int? facilityId, DateOnly? date)
         {
-            var slots = await _context.Slots
-                .Where(s => s.IsActive == true)
-                .Select(s => new SlotDto
-                {
-                    SlotId = s.SlotId,
-                    SlotName = s.SlotName,
-                    StartTime = s.StartTime, 
-                    EndTime = s.EndTime,
-                    IsActive = s.IsActive ?? false
-                })
-                .OrderBy(s => s.SlotName)
-                .ToListAsync();
+            var query = _context.Slots.AsQueryable();
 
-            return slots;
+            if (facilityId.HasValue && date.HasValue)
+            {
+                query = query.Where(s => !_context.Bookings.Any(b =>
+                    b.SlotId == s.SlotId &&
+                    b.FacilityId == facilityId &&
+                    b.BookingDate == date &&
+                    b.Status == "Approved" 
+                ));
+            }
+
+            return await query.Select(s => new SlotDto
+            {
+                SlotId = s.SlotId,
+                SlotName = s.SlotName,
+                StartTime = s.StartTime,
+                EndTime = s.EndTime
+            }).ToListAsync();
         }
     }
 }

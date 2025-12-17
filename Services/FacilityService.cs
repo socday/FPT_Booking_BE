@@ -16,11 +16,12 @@ namespace FPT_Booking_BE.Services
             _context = context;
         }
 
-        public async Task<List<FacilityDto>> GetAllFacilities(string? name, int? campusId, int? typeId)
+        public async Task<List<FacilityDto>> GetAllFacilities(string? name, int? campusId, int? typeId, int? slotId, DateOnly? date)
         {
             var query = _context.Facilities
                 .Include(f => f.Campus)
                 .Include(f => f.Type)
+                .Where(f => f.Status == "Available")
                 .AsQueryable();
 
             if (!string.IsNullOrEmpty(name))
@@ -38,13 +39,22 @@ namespace FPT_Booking_BE.Services
                 query = query.Where(f => f.TypeId == typeId);
             }
 
+            if (slotId.HasValue && date.HasValue)
+            {
+                query = query.Where(f => !_context.Bookings.Any(b =>
+                    b.FacilityId == f.FacilityId &&
+                    b.BookingDate == date &&
+                    b.SlotId == slotId &&
+                    b.Status == "Approved"
+                ));
+            }
+
             return await query
                 .Select(f => new FacilityDto
                 {
                     FacilityId = f.FacilityId,
                     FacilityName = f.FacilityName,
                     CampusName = f.Campus.CampusName,
-                    FacilityCapacity = f.Capacity,
                     TypeName = f.Type.TypeName,
                     ImageUrl = f.ImageUrl ?? "",
                     Status = f.Status

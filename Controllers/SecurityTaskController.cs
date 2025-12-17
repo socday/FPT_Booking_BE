@@ -40,7 +40,7 @@ namespace FPT_Booking_BE.Controllers
         }
 
         [HttpGet("pending")]
-        [Authorize(Roles = "Security,Admin,Manager")]
+        [Authorize(Roles = "Security,Admin,Manager,FacilityAdmin")]
         public async Task<IActionResult> GetPendingTasks()
         {
             var tasks = await _taskService.GetPendingTasksAsync();

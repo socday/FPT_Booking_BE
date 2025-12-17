@@ -19,6 +19,13 @@ namespace FPT_Booking_BE.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
+
+            if (string.IsNullOrEmpty(request.Email) ||
+                !request.Email.Trim().EndsWith("@fpt.edu.vn", StringComparison.OrdinalIgnoreCase))
+            {
+                return BadRequest(new { message = "Vui lòng sử dụng email FPT (@fpt.edu.vn) để đăng nhập." });
+            }
+
             var token = await _authService.Login(request);
 
             if (token == null)

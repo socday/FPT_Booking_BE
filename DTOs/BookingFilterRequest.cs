@@ -22,10 +22,6 @@ namespace FPT_Booking_BE.DTOs
     public class BookingResponse
     {
         public int BookingId { get; set; }
-        public int FacilityId { get; set; }
-        public int SlotId {get;set;}
-        public string? RejectReason { get; set; }
-        public string Purpose { get; set; } = null!;
         public string FacilityName { get; set; } = null!; 
         public string CampusName { get; set; } = null!;  
         public DateTime BookingDate { get; set; }
@@ -33,6 +29,8 @@ namespace FPT_Booking_BE.DTOs
         public TimeSpan EndTime { get; set; }
         public string Status { get; set; } = null!;
         public string BookedBy { get; set; } = null!;     
-        public int UserId { get; set; } 
+        public int UserId { get; set; }
+        public string? RejectionReason { get; set; }
+        public string? Purpose { get; set; }
     }
 }

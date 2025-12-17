@@ -6,6 +6,6 @@ namespace FPT_Booking_BE.Services
 {
     public interface ISlotService
     {
-        Task<List<SlotDto>> GetAllSlots();
+        Task<List<SlotDto>> GetAllSlots(int? facilityId, DateOnly? date);
     }
 }

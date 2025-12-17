@@ -483,7 +483,8 @@ namespace FPT_Booking_BE.Services
         {
             var query = _context.Bookings
                 .Include(b => b.Facility).ThenInclude(f => f.Campus) 
-                .Include(b => b.User) 
+                .Include(b => b.User)
+                .Include(b => b.Slot)
                 .AsQueryable();
 
             if (request.FromDate.HasValue)
@@ -526,9 +527,11 @@ namespace FPT_Booking_BE.Services
                     FacilityName = b.Facility != null ? b.Facility.FacilityName : "Unknown",
                     CampusName = (b.Facility != null && b.Facility.Campus != null) ? b.Facility.Campus.CampusName : "Unknown",
                     BookingDate = b.BookingDate.ToDateTime(TimeOnly.MinValue),
-                    StartTime = TimeSpan.Zero,
-                    EndTime = TimeSpan.Zero,
+                    StartTime = b.Slot != null ? b.Slot.StartTime.ToTimeSpan() : TimeSpan.Zero,
+                    EndTime = b.Slot != null ? b.Slot.EndTime.ToTimeSpan() : TimeSpan.Zero,
                     Status = b.Status ?? "Pending",
+                    Purpose = b.Purpose,
+                    RejectionReason = b.RejectionReason,
                     BookedBy = b.User.FullName,
                     UserId = b.UserId
                 })
