@@ -26,6 +26,7 @@ namespace FPT_Booking_BE.DTOs
         public string FacilityName { get; set; } = null!; 
         public string CampusName { get; set; } = null!;  
         public DateTime BookingDate { get; set; }
+        public string PriorityLevel { get; set; } = null!;
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
         public string Status { get; set; } = null!;
