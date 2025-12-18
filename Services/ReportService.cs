@@ -53,6 +53,9 @@ namespace FPT_Booking_BE.Services
                 .Select(r => new ReportDto
                 {
                     ReportId = r.ReportId,
+                    BookingId = r.BookingId,
+                    UserId = r.UserId,
+                    UserName = r.User.FullName,
                     SlotId = r.Booking.SlotId != null ? r.Booking.SlotId : 0,
                     Title = r.Title,
                     Description = r.Description,
