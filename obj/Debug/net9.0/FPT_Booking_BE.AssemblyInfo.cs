@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FPT_Booking_BE")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c20c71f3f5da5350e484c98995e4c7ef13bc1fe2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ec499631055e83b580f19c4eda6c9d1f41a27fd")]
 [assembly: System.Reflection.AssemblyProductAttribute("FPT_Booking_BE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FPT_Booking_BE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

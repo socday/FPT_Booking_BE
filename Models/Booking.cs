@@ -31,6 +31,8 @@ public partial class Booking
 
     public string? RecurrenceGroupId { get; set; }
 
+    public int? RecurrencePatternId { get; set; }
+
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
@@ -38,6 +40,8 @@ public partial class Booking
     public int? UpdatedBy { get; set; }
 
     public virtual User? Approver { get; set; }
+
+    public virtual RecurrencePattern? RecurrencePattern { get; set; }
 
     public virtual Facility Facility { get; set; } = null!;
 

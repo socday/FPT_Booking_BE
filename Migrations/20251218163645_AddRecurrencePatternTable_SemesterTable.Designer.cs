@@ -4,6 +4,7 @@ using FPT_Booking_BE.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FPT_Booking_BE.Migrations
 {
     [DbContext(typeof(FptFacilityBookingContext))]
-    partial class FptFacilityBookingContextModelSnapshot : ModelSnapshot
+    [Migration("20251218163645_AddRecurrencePatternTable_SemesterTable")]
+    partial class AddRecurrencePatternTable_SemesterTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -573,9 +576,10 @@ namespace FPT_Booking_BE.Migrations
                     b.Property<int?>("Interval")
                         .HasColumnType("int");
 
-                    b.Property<int>("PatternTypeId")
-                        .HasColumnType("int")
-                        .HasColumnName("PatternTypeID");
+                    b.Property<string>("PatternType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("RecurrenceGroupId")
                         .IsRequired()
@@ -592,77 +596,7 @@ namespace FPT_Booking_BE.Migrations
 
                     b.HasIndex("CreatedBy");
 
-                    b.HasIndex("PatternTypeId");
-
                     b.ToTable("RecurrencePatterns");
-                });
-
-            modelBuilder.Entity("FPT_Booking_BE.Models.RecurrencePatternType", b =>
-                {
-                    b.Property<int>("PatternTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("PatternTypeID");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PatternTypeId"));
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("TypeName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("PatternTypeId")
-                        .HasName("PK__RecurrencePatternType__ID");
-
-                    b.ToTable("RecurrencePatternTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            PatternTypeId = 1,
-                            Description = "Repeat every day",
-                            TypeName = "Daily"
-                        },
-                        new
-                        {
-                            PatternTypeId = 2,
-                            Description = "Repeat every week on the same day(s)",
-                            TypeName = "Weekly"
-                        },
-                        new
-                        {
-                            PatternTypeId = 3,
-                            Description = "Repeat on weekdays only (Monday to Friday)",
-                            TypeName = "Weekdays"
-                        },
-                        new
-                        {
-                            PatternTypeId = 4,
-                            Description = "Repeat on weekends only (Saturday and Sunday)",
-                            TypeName = "Weekends"
-                        },
-                        new
-                        {
-                            PatternTypeId = 5,
-                            Description = "Repeat every month on the same date",
-                            TypeName = "Monthly"
-                        },
-                        new
-                        {
-                            PatternTypeId = 6,
-                            Description = "Custom pattern - specify which days of week",
-                            TypeName = "Custom"
-                        },
-                        new
-                        {
-                            PatternTypeId = 7,
-                            Description = "Repeat for the entire semester",
-                            TypeName = "Semesterly"
-                        });
                 });
 
             modelBuilder.Entity("FPT_Booking_BE.Models.Report", b =>
@@ -1173,15 +1107,7 @@ namespace FPT_Booking_BE.Migrations
                         .IsRequired()
                         .HasConstraintName("FK_RecurrencePattern_CreatedBy");
 
-                    b.HasOne("FPT_Booking_BE.Models.RecurrencePatternType", "PatternType")
-                        .WithMany("RecurrencePatterns")
-                        .HasForeignKey("PatternTypeId")
-                        .IsRequired()
-                        .HasConstraintName("FK_RecurrencePattern_PatternType");
-
                     b.Navigation("CreatedByUser");
-
-                    b.Navigation("PatternType");
                 });
 
             modelBuilder.Entity("FPT_Booking_BE.Models.Report", b =>
@@ -1280,11 +1206,6 @@ namespace FPT_Booking_BE.Migrations
             modelBuilder.Entity("FPT_Booking_BE.Models.RecurrencePattern", b =>
                 {
                     b.Navigation("Bookings");
-                });
-
-            modelBuilder.Entity("FPT_Booking_BE.Models.RecurrencePatternType", b =>
-                {
-                    b.Navigation("RecurrencePatterns");
                 });
 
             modelBuilder.Entity("FPT_Booking_BE.Models.Role", b =>

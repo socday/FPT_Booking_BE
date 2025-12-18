@@ -31,6 +31,10 @@ public partial class FptFacilityBookingContext : DbContext
 
     public virtual DbSet<Report> Reports { get; set; }
 
+    public virtual DbSet<RecurrencePattern> RecurrencePatterns { get; set; }
+
+    public virtual DbSet<RecurrencePatternType> RecurrencePatternTypes { get; set; }
+
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<SecurityTask> SecurityTasks { get; set; }
@@ -110,6 +114,10 @@ public partial class FptFacilityBookingContext : DbContext
                 .HasForeignKey(d => d.SlotId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Bookings__SlotID__74AE54BC");
+
+            entity.HasOne(d => d.RecurrencePattern).WithMany(p => p.Bookings)
+                .HasForeignKey(d => d.RecurrencePatternId)
+                .HasConstraintName("FK_Bookings_RecurrencePattern");
 
             entity.HasOne(d => d.UpdatedByNavigation).WithMany(p => p.BookingUpdatedByNavigations)
                 .HasForeignKey(d => d.UpdatedBy)
@@ -245,6 +253,41 @@ public partial class FptFacilityBookingContext : DbContext
                 .HasConstraintName("FK__Reports__UserID__7A672E12");
         });
 
+        modelBuilder.Entity<RecurrencePatternType>(entity =>
+        {
+            entity.HasKey(e => e.PatternTypeId).HasName("PK__RecurrencePatternType__ID");
+
+            entity.Property(e => e.PatternTypeId).HasColumnName("PatternTypeID");
+            entity.Property(e => e.TypeName).HasMaxLength(50);
+            entity.Property(e => e.Description).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<RecurrencePattern>(entity =>
+        {
+            entity.HasKey(e => e.RecurrencePatternId).HasName("PK__Recurren__PATTERN_ID");
+
+            entity.Property(e => e.RecurrencePatternId).HasColumnName("RecurrencePatternID");
+            entity.Property(e => e.RecurrenceGroupId)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("RecurrenceGroupID");
+            entity.Property(e => e.PatternTypeId).HasColumnName("PatternTypeID");
+            entity.Property(e => e.DaysOfWeek).HasMaxLength(100);
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            
+            entity.HasOne(d => d.CreatedByUser).WithMany()
+                .HasForeignKey(d => d.CreatedBy)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_RecurrencePattern_CreatedBy");
+
+            entity.HasOne(d => d.PatternType).WithMany(p => p.RecurrencePatterns)
+                .HasForeignKey(d => d.PatternTypeId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_RecurrencePattern_PatternType");
+        });
+
         modelBuilder.Entity<Role>(entity =>
         {
             entity.HasKey(e => e.RoleId).HasName("PK__Roles__8AFACE3AB5D9A902");
@@ -353,6 +396,17 @@ public partial class FptFacilityBookingContext : DbContext
             new FacilityType { TypeId = 2, TypeName = "Phòng Lab", RequiresApproval = true, Description = "Phòng thí nghiệm" },
             new FacilityType { TypeId = 3, TypeName = "Hội trường", RequiresApproval = true, Description = "Hội trường sự kiện" },
             new FacilityType { TypeId = 4, TypeName = "Sân thể thao", RequiresApproval = false, Description = "Sân thể thao" }
+        );
+
+        // Seed Recurrence Pattern Types
+        modelBuilder.Entity<RecurrencePatternType>().HasData(
+            new RecurrencePatternType { PatternTypeId = 1, TypeName = "Daily", Description = "Repeat every day" },
+            new RecurrencePatternType { PatternTypeId = 2, TypeName = "Weekly", Description = "Repeat every week on the same day(s)" },
+            new RecurrencePatternType { PatternTypeId = 3, TypeName = "Weekdays", Description = "Repeat on weekdays only (Monday to Friday)" },
+            new RecurrencePatternType { PatternTypeId = 4, TypeName = "Weekends", Description = "Repeat on weekends only (Saturday and Sunday)" },
+            new RecurrencePatternType { PatternTypeId = 5, TypeName = "Monthly", Description = "Repeat every month on the same date" },
+            new RecurrencePatternType { PatternTypeId = 6, TypeName = "Custom", Description = "Custom pattern - specify which days of week" },
+            new RecurrencePatternType { PatternTypeId = 7, TypeName = "Semesterly", Description = "Repeat for the entire semester" }
         );
 
         // Seed Slots (Ca học FPT)
