@@ -1,6 +1,7 @@
 using FPT_Booking_BE.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FPT_Booking_BE.Repositories
@@ -97,6 +98,19 @@ namespace FPT_Booking_BE.Repositories
             return bookings.GroupBy(b => b.RecurrenceGroupId!);
         }
 
+        public async Task<IEnumerable<Booking>> GetBookingsByRecurringGroupId(string recurrenceGroupId)
+        {
+            return await _context.Bookings
+                .Include(b => b.Facility)
+                .ThenInclude(f => f.Type)
+                .Include(b => b.Slot)
+                .Include(b => b.User)
+                .ThenInclude(u => u.Role)
+                .Where(b => b.RecurrenceGroupId == recurrenceGroupId)
+                .OrderBy(b => b.BookingDate)
+                .ToListAsync();
+        }
+
         public async Task<Booking?> GetBookingById(int id)
         {
             return await _context.Bookings.FindAsync(id);
@@ -154,6 +168,11 @@ namespace FPT_Booking_BE.Repositories
         {
             _context.Bookings.Update(booking);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<int> GetTotalBookingsCount()
+        {
+            return await _context.Bookings.CountAsync();
         }
     }
 }

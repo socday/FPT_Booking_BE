@@ -252,5 +252,25 @@ namespace FPT_Booking_BE.Controllers
             return Ok(groups);
         }
 
+        /// <summary>
+        /// Get all bookings that belong to a specific recurring group
+        /// </summary>
+        [HttpGet("recurring-group/{recurrenceGroupId}")]
+        public async Task<IActionResult> GetBookingsByRecurringGroupId(string recurrenceGroupId)
+        {
+            var bookings = await _bookingService.GetBookingsByRecurringGroupId(recurrenceGroupId);
+            return Ok(bookings);
+        }
+
+        /// <summary>
+        /// Get total count of all bookings
+        /// </summary>
+        [HttpGet("count")]
+        public async Task<IActionResult> GetTotalBookingsCount()
+        {
+            var count = await _bookingService.GetTotalBookingsCount();
+            return Ok(new { totalBookings = count });
+        }
+
     }
 }   

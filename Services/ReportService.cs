@@ -39,6 +39,7 @@ namespace FPT_Booking_BE.Services
             var query = _context.Reports
                 .Include(r => r.User)
                 .Include(r => r.Facility)
+                .Include(r => r.Booking)
                 .AsQueryable();
 
             // Nếu là Student/Lecturer/Security -> Chỉ xem report của chính mình
@@ -52,6 +53,7 @@ namespace FPT_Booking_BE.Services
                 .Select(r => new ReportDto
                 {
                     ReportId = r.ReportId,
+                    SlotId = r.Booking.SlotId != null ? r.Booking.SlotId : 0,
                     Title = r.Title,
                     Description = r.Description,
                     ReportType = r.ReportType,

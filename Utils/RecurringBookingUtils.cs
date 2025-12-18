@@ -42,6 +42,26 @@ namespace FPT_Booking_BE.Utils
                 case RecurrencePattern.Custom:
                     dates = GenerateCustomDates(request.StartDate, request.EndDate, request.DaysOfWeek);
                     break;
+                case RecurrencePattern.Semesterly:
+                    {
+                        var currentDate = request.StartDate;
+                        while (currentDate <= request.EndDate)
+                        {
+                            dates.Add(currentDate);
+                            try
+                            {
+                                currentDate = currentDate.AddMonths(4);
+                            }
+                            catch
+                            {
+                                // Handle cases where the day doesn't exist in target month (e.g., Jan 31 -> Feb)
+                                var nextMonth = currentDate.AddMonths(4);
+                                var lastDayOfMonth = DateTimeUtils.GetEndOfMonth(nextMonth);
+                                currentDate = lastDayOfMonth;
+                            }
+                        }
+                        break;
+                    }
             }
 
             return dates;

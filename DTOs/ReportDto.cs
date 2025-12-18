@@ -3,6 +3,7 @@ namespace FPT_Booking_BE.DTOs
     public class ReportDto
     {
         public int ReportId { get; set; }
+        public int SlotId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string ReportType { get; set; } = string.Empty;

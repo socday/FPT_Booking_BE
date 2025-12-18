@@ -10,6 +10,7 @@ namespace FPT_Booking_BE.Repositories
         Task<IEnumerable<Booking>> GetIndividualBookings(int? userId, string? status);
         Task<IEnumerable<Booking>> GetRecurringBookings(int? userId, string? status);
         Task<IEnumerable<IGrouping<string, Booking>>> GetRecurringBookingGroupsAsync(int? userId);
+        Task<IEnumerable<Booking>> GetBookingsByRecurringGroupId(string recurrenceGroupId);
         Task<Booking?> GetBookingById(int id);
         Task UpdateBooking(Booking booking);
         Task<List<int>> GetBookedSlotIds(int facilityId, DateOnly date);
@@ -18,5 +19,6 @@ namespace FPT_Booking_BE.Repositories
 
         Task<Booking?> GetBookingByIdAsync(int id);
         Task UpdateBookingAsync(Booking booking);
+        Task<int> GetTotalBookingsCount();
     }
 }

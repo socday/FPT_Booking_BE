@@ -140,7 +140,7 @@ namespace FPT_Booking_BE.Services
                     b.UserId,
                     b.BookingDate,
                     b.Status,
-
+                    b.Purpose,
                     FacilityName = b.Facility.FacilityName,
                     SlotName = b.Slot.SlotName,
                     StartTime = b.Slot.StartTime,
@@ -148,12 +148,15 @@ namespace FPT_Booking_BE.Services
                 })
                 .OrderByDescending(b => b.BookingDate)
                 .ToListAsync();
-
+            foreach (var b in rawData)
+            {
+                Console.WriteLine($"Debug Booking - ID: {b.BookingId}, UserId: {b.UserId}, Date: {b.BookingDate}, Purpose: {b.Purpose}");
+            }
             var historyDtos = rawData.Select(b => new BookingHistoryDto
             {
-                Id = b.BookingId,
+                BookingId = b.BookingId,
                 UserId = b.UserId,
-
+                Purpose = b.Purpose,
                 BookingDate = b.BookingDate,
 
                 Status = b.Status,
@@ -174,9 +177,11 @@ namespace FPT_Booking_BE.Services
 
             return bookings.Select(b => new BookingHistoryDto
             {
-                Id = b.BookingId,
+                BookingId = b.BookingId,
                 UserId = b.UserId,
+                UserName = b.User?.FullName ?? "Unknown",
                 BookingDate = b.BookingDate,
+                Purpose = b.Purpose,
                 Status = b.Status,
                 FacilityName = b.Facility?.FacilityName ?? "",
                 SlotName = b.Slot?.SlotName ?? "",
@@ -191,9 +196,11 @@ namespace FPT_Booking_BE.Services
 
             return bookings.Select(b => new BookingHistoryDto
             {
-                Id = b.BookingId,
+                BookingId = b.BookingId,
                 UserId = b.UserId,
+                UserName = b.User?.FullName ?? "Unknown",
                 BookingDate = b.BookingDate,
+                Purpose = b.Purpose,
                 Status = b.Status,
                 FacilityName = b.Facility?.FacilityName ?? "",
                 SlotName = b.Slot?.SlotName ?? "",
@@ -233,6 +240,25 @@ namespace FPT_Booking_BE.Services
             }).OrderByDescending(g => g.CreatedAt).ToList();
 
             return result;
+        }
+
+        public async Task<List<BookingHistoryDto>> GetBookingsByRecurringGroupId(string recurrenceGroupId)
+        {
+            var bookings = await _bookingRepo.GetBookingsByRecurringGroupId(recurrenceGroupId);
+
+            return bookings.Select(b => new BookingHistoryDto
+            {
+                BookingId = b.BookingId,
+                UserId = b.UserId,
+                UserName = b.User?.FullName ?? "Unknown",
+                BookingDate = b.BookingDate,
+                Purpose = b.Purpose,
+                Status = b.Status,
+                FacilityName = b.Facility?.FacilityName ?? "",
+                SlotName = b.Slot?.SlotName ?? "",
+                StartTime = (TimeOnly)(b.Slot?.StartTime),
+                EndTime = (TimeOnly)(b.Slot?.EndTime)
+            }).ToList();
         }
 
         public async Task<string> UpdateStatus(int bookingId, string status, string? rejectionReason)
@@ -388,7 +414,7 @@ namespace FPT_Booking_BE.Services
                 .OrderBy(b => b.Slot.StartTime)        
                 .Select(b => new BookingHistoryDto
                 {
-                    Id = b.BookingId,
+                    BookingId = b.BookingId,
                     UserId = b.UserId, 
                     FacilityName = b.Facility.FacilityName,
                     SlotName = b.Slot.SlotName,
@@ -664,6 +690,11 @@ namespace FPT_Booking_BE.Services
                 PageIndex = request.PageIndex,
                 PageSize = request.PageSize
             };
+        }
+
+        public async Task<int> GetTotalBookingsCount()
+        {
+            return await _bookingRepo.GetTotalBookingsCount();
         }
     }
 }

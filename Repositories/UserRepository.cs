@@ -16,5 +16,10 @@ namespace FPT_Booking_BE.Repositories
         {
             return await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.Email == email);
         }
+        public async Task CreateUserAsync(User user)
+        {
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FPT_Booking_BE.Models;
 
@@ -36,18 +35,19 @@ public partial class Booking
 
     public DateTime? UpdatedAt { get; set; }
 
+    public int? UpdatedBy { get; set; }
+
     public virtual User? Approver { get; set; }
 
     public virtual Facility Facility { get; set; } = null!;
 
     public virtual ICollection<Report> Reports { get; set; } = new List<Report>();
 
+    public virtual ICollection<SecurityTask> SecurityTasks { get; set; } = new List<SecurityTask>();
+
     public virtual Slot Slot { get; set; } = null!;
 
+    public virtual User? UpdatedByNavigation { get; set; }
+
     public virtual User User { get; set; } = null!;
-
-    public int? UpdatedBy { get; set; }
-
-    [ForeignKey("UpdatedBy")]
-    public virtual User? UpdatedByUser { get; set; }
 }

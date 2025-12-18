@@ -33,6 +33,8 @@ namespace FPT_Booking_BE.Utils
         /// <summary>
         /// Custom pattern - specify which days of week
         /// </summary>
-        Custom = 6
+        Custom = 6,
+        
+        Semesterly = 7
     }
 }
