@@ -494,6 +494,17 @@ public partial class FptFacilityBookingContext : DbContext
                 PhoneNumber = "0900000002",
                 IsActive = true,
                 CreatedAt = new DateTime(2024, 1, 1)
+            },
+            new User 
+            { 
+                UserId = 7, 
+                Email = "string", 
+                PasswordHash = "string",
+                FullName = "Nguyễn Quản Admin", 
+                RoleId = 1, 
+                PhoneNumber = "0901234567",
+                IsActive = true,
+                CreatedAt = new DateTime(2024, 1, 1)
             }
         );
 

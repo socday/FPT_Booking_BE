@@ -696,5 +696,202 @@ namespace FPT_Booking_BE.Services
         {
             return await _bookingRepo.GetTotalBookingsCount();
         }
+
+        public async Task<BookingConflictDto?> CheckBookingConflict(int userId, int facilityId, DateOnly bookingDate, int slotId)
+        {
+            var currentUser = await _context.Users
+                .Include(u => u.Role)
+                .FirstOrDefaultAsync(u => u.UserId == userId);
+
+            if (currentUser == null) return null;
+
+            var conflictBooking = await _context.Bookings
+                .Include(b => b.User)
+                .ThenInclude(u => u.Role)
+                .Include(b => b.Facility)
+                .Include(b => b.Slot)
+                .FirstOrDefaultAsync(b =>
+                    b.FacilityId == facilityId &&
+                    b.BookingDate == bookingDate &&
+                    b.SlotId == slotId &&
+                    b.Status != "Cancelled" &&
+                    b.Status != "Rejected");
+
+            if (conflictBooking == null) return null;
+
+            int currentPriority = GetRolePriority(currentUser.Role.RoleName);
+            int ownerPriority = GetRolePriority(conflictBooking.User.Role.RoleName);
+            bool canOverride = currentPriority > ownerPriority;
+
+            return new BookingConflictDto
+            {
+                BookingId = conflictBooking.BookingId,
+                UserId = conflictBooking.UserId,
+                UserName = conflictBooking.User.FullName,
+                UserEmail = conflictBooking.User.Email,
+                UserRole = conflictBooking.User.Role.RoleName,
+                FacilityId = conflictBooking.FacilityId,
+                FacilityName = conflictBooking.Facility.FacilityName,
+                BookingDate = conflictBooking.BookingDate,
+                SlotId = conflictBooking.SlotId,
+                SlotName = conflictBooking.Slot.SlotName,
+                StartTime = conflictBooking.Slot.StartTime,
+                EndTime = conflictBooking.Slot.EndTime,
+                Purpose = conflictBooking.Purpose ?? "",
+                Status = conflictBooking.Status ?? "",
+                CanOverride = canOverride,
+                Message = canOverride 
+                    ? $"Bạn có quyền ưu tiên cao hơn {conflictBooking.User.Role.RoleName}. Có thể đè lịch này." 
+                    : $"Phòng đã được đặt bởi {conflictBooking.User.Role.RoleName}. Bạn không có quyền ưu tiên."
+            };
+        }
+
+        public async Task<RecurringConflictCheckResponse> CheckRecurringConflicts(int userId, BookingRecurringRequest request)
+        {
+            var response = new RecurringConflictCheckResponse { Success = true };
+
+            // Validate the recurring request
+            var (isValid, errorMessage) = RecurringBookingUtils.ValidateRecurringRequest(request);
+            if (!isValid)
+            {
+                response.Success = false;
+                response.Message = errorMessage;
+                return response;
+            }
+
+            var user = await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(u => u.UserId == userId);
+            var originalFacility = await _context.Facilities
+                .Include(f => f.Type)
+                .Include(f => f.Campus)
+                .FirstOrDefaultAsync(f => f.FacilityId == request.FacilityId);
+
+            if (user == null || originalFacility == null)
+            {
+                response.Success = false;
+                response.Message = "Dữ liệu không hợp lệ";
+                return response;
+            }
+
+            // Generate all booking dates
+            var bookingDates = RecurringBookingUtils.GenerateRecurringDates(request);
+            response.TotalDates = bookingDates.Count;
+
+            if (bookingDates.Count == 0)
+            {
+                response.Success = false;
+                response.Message = "Không có ngày nào phù hợp với mẫu lặp lại đã chọn.";
+                return response;
+            }
+
+            // Check each date for conflicts
+            foreach (var currentDate in bookingDates)
+            {
+                var conflictDto = new RecurringConflictDto
+                {
+                    BookingDate = currentDate,
+                    DayOfWeek = DateTimeUtils.GetVietnameseDayName(currentDate),
+                    HasConflict = false,
+                    CanProceed = true
+                };
+
+                // Check for conflicts on the requested facility
+                var conflict = await _context.Bookings
+                    .Include(b => b.User)
+                    .ThenInclude(u => u.Role)
+                    .Include(b => b.Facility)
+                    .Include(b => b.Slot)
+                    .FirstOrDefaultAsync(b =>
+                        b.FacilityId == originalFacility.FacilityId &&
+                        b.BookingDate == currentDate &&
+                        b.SlotId == request.SlotId &&
+                        b.Status != "Cancelled" &&
+                        b.Status != "Rejected");
+
+                if (conflict != null)
+                {
+                    conflictDto.HasConflict = true;
+                    response.ConflictCount++;
+
+                    int myPriority = GetRolePriority(user.Role.RoleName);
+                    int ownerPriority = GetRolePriority(conflict.User.Role.RoleName);
+                    bool canOverride = myPriority > ownerPriority;
+
+                    conflictDto.ConflictingBooking = new BookingConflictDto
+                    {
+                        BookingId = conflict.BookingId,
+                        UserId = conflict.UserId,
+                        UserName = conflict.User.FullName,
+                        UserEmail = conflict.User.Email,
+                        UserRole = conflict.User.Role.RoleName,
+                        FacilityId = conflict.FacilityId,
+                        FacilityName = conflict.Facility.FacilityName,
+                        BookingDate = conflict.BookingDate,
+                        SlotId = conflict.SlotId,
+                        SlotName = conflict.Slot.SlotName,
+                        StartTime = conflict.Slot.StartTime,
+                        EndTime = conflict.Slot.EndTime,
+                        Purpose = conflict.Purpose ?? "",
+                        Status = conflict.Status ?? "",
+                        CanOverride = canOverride
+                    };
+
+                    if (canOverride)
+                    {
+                        conflictDto.CanProceed = true;
+                        conflictDto.Message = $"Có thể đè lịch của {conflict.User.FullName} ({conflict.User.Role.RoleName})";
+                        response.CanProceedCount++;
+                    }
+                    else if (request.AutoFindAlternative)
+                    {
+                        // Try to find alternative room
+                        var alternativeFacilities = await _context.Facilities
+                            .Where(f => f.CampusId == originalFacility.CampusId &&
+                                        f.TypeId == originalFacility.TypeId &&
+                                        f.Status == "Available" &&
+                                        f.FacilityId != originalFacility.FacilityId)
+                            .ToListAsync();
+
+                        bool foundAlternative = false;
+                        foreach (var alt in alternativeFacilities)
+                        {
+                            bool isAltBusy = await _bookingRepo.IsBookingConflict(alt.FacilityId, currentDate, request.SlotId);
+                            if (!isAltBusy)
+                            {
+                                conflictDto.AlternativeFacilityId = alt.FacilityId.ToString();
+                                conflictDto.AlternativeFacilityName = alt.FacilityName;
+                                conflictDto.CanProceed = true;
+                                conflictDto.Message = $"Phòng gốc bận, có thể chuyển sang {alt.FacilityName}";
+                                response.CanProceedCount++;
+                                foundAlternative = true;
+                                break;
+                            }
+                        }
+
+                        if (!foundAlternative)
+                        {
+                            conflictDto.CanProceed = false;
+                            conflictDto.Message = "Phòng gốc bận và không có phòng thay thế";
+                            response.BlockedCount++;
+                        }
+                    }
+                    else
+                    {
+                        conflictDto.CanProceed = false;
+                        conflictDto.Message = $"Phòng đã được đặt bởi {conflict.User.FullName} ({conflict.User.Role.RoleName})";
+                        response.BlockedCount++;
+                    }
+                }
+                else
+                {
+                    conflictDto.Message = "Phòng trống, có thể đặt";
+                    response.CanProceedCount++;
+                }
+
+                response.Conflicts.Add(conflictDto);
+            }
+
+            response.Message = $"Kiểm tra {response.TotalDates} ngày: {response.CanProceedCount} có thể đặt, {response.BlockedCount} bị chặn";
+            return response;
+        }
     }
 }

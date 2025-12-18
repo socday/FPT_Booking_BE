@@ -31,6 +31,7 @@ namespace FPT_Booking_BE.Controllers
                 Description = request.Description,
                 Priority = request.Priority,
                 AssignedToUserId = request.AssignedToId,
+                BookingId = request.BookingId,
                 CreatedBy = userId,
                 Status = "Pending"
             };

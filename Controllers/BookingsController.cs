@@ -272,5 +272,48 @@ namespace FPT_Booking_BE.Controllers
             return Ok(new { totalBookings = count });
         }
 
+        /// <summary>
+        /// Check if there's a booking conflict for a specific facility, date, and slot
+        /// Returns conflict details including the user who booked it and whether you can override
+        /// </summary>
+        [HttpPost("check-conflict")]
+        public async Task<IActionResult> CheckBookingConflict([FromBody] BookingCreateRequest request)
+        {
+            var userIdClaim = User.FindFirst("UserId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(new { message = "Token không hợp lệ" });
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+            var conflict = await _bookingService.CheckBookingConflict(userId, request.FacilityId, request.BookingDate, request.SlotId);
+
+            if (conflict == null)
+            {
+                return Ok(new { hasConflict = false, message = "Phòng trống, có thể đặt" });
+            }
+
+            return Ok(new { hasConflict = true, conflict });
+        }
+
+        /// <summary>
+        /// Check conflicts for recurring booking across all dates
+        /// Returns detailed conflict information for each date in the recurring pattern
+        /// </summary>
+        [HttpPost("check-recurring-conflicts")]
+        public async Task<IActionResult> CheckRecurringConflicts([FromBody] BookingRecurringRequest request)
+        {
+            var userIdClaim = User.FindFirst("UserId");
+            if (userIdClaim == null)
+            {
+                return Unauthorized(new { message = "Token không hợp lệ" });
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+            var result = await _bookingService.CheckRecurringConflicts(userId, request);
+
+            return Ok(result);
+        }
+
     }
 }   
