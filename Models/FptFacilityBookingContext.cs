@@ -641,6 +641,41 @@ public partial class FptFacilityBookingContext : DbContext
                 CreatedAt = new DateTime(2024, 1, 1)
             }
         );
+        modelBuilder.Entity<Semester>().HasData(
+            new Semester
+            {
+                SemesterId = 1,
+                Name = "Fall 2025",
+                StartDate = new DateOnly(2025, 9, 1),
+                EndDate = new DateOnly(2025, 12, 28),
+                IsActive = true
+            },         
+            new Semester
+            {
+                SemesterId = 2,
+                Name = "Summer 2025",
+                StartDate = new DateOnly(2025, 6, 1),
+                EndDate = new DateOnly(2025, 8, 31),
+                IsActive = true
+            },    
+            new Semester
+            {
+                SemesterId = 3,
+                Name = "Spring 2026",
+                StartDate = new DateOnly(2026, 1, 1),
+                EndDate = new DateOnly(2026, 3, 15),
+                IsActive = true
+            },           
+            new Semester
+            {
+                SemesterId = 4,
+                Name = "Summer 2026",
+                StartDate = new DateOnly(2026, 4, 1),
+                EndDate = new DateOnly(2026, 8, 31),
+                IsActive = true
+            }
+
+        );
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
