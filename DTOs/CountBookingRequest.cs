@@ -11,4 +11,4 @@ namespace FPT_Booking_BE.DTOs
 
         public string SortBy { get; set; } = "Newest";
     }
-
+}
